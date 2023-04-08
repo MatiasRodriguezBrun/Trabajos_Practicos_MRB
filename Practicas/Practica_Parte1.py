@@ -52,45 +52,133 @@ print(rango_de_recepcion(300))
 print(rango_de_recepcion(40))
 
 #Ejercicio 7
-# Reescribir la función del punto anterior considerando, además, que la longitud de onda no puede ser 314.5 porque ya está ocupada por otra radio (no se puede usar if).
+# Reescribir la función del punto anterior considerando, además, que la longitud de onda no puede ser 314.5
+# porque ya está ocupada por otra radio (no se puede usar if).
+def rango_de_recepcion(longitud_de_onda):
+    return 223.0 <= longitud_de_onda <= 586.8 and (longitud_de_onda!=314.5)
+print(rango_de_recepcion(300))
+print(rango_de_recepcion(40))
+print(rango_de_recepcion(314.5))
+longitud = 10
+mensaje = "La longitud de onda está dentro del rango de recepción" * rango_de_recepcion(longitud) or "La longitud de onda está fuera del rango de recepción"
+print(mensaje)
 
 #Ejercicio 8
-# Escribir una función llamada tiene_descuento que tome como parámetro una edad y devuelva True en caso de que la edad sea menor o igual a 12 o mayor o igual a 60. En caso contrario tiene que devolver False (no se puede usar if).
+# Escribir una función llamada tiene_descuento que tome como parámetro una edad y devuelva True en caso de que la 
+# edad sea menor o igual a 12 o mayor o igual a 60. En caso contrario tiene que devolver False (no se puede usar if).
+def tiene_descuento(edad):
+    return 12>=edad or edad>=60
+print(tiene_descuento(8))
+print(tiene_descuento(60))
+print(tiene_descuento(30))
 
 #Ejercicio 9
-# En lógica, los operadores lógicos Y y O se conocen como conjunción y disyunción, respectivamente y se los puede visualizar mediante tablas de verdad:
-'''
-Conjunción:
+    # Escribir una función xor que tome como parámetro dos booleanos y retorne el booleano correspondiente con la tabla.
+print ("Ejercicio 9")
+def disyuncion_exclusiva(a, b):
+    if a == True and b == True: 
+        resultado = False
+        print (resultado)
+    elif a == True and b == False: 
+        resultado = True
+        print (resultado)
+    elif a == False and b == True: 
+        resultado = True
+        print (resultado)
+    elif a == False and b == False: 
+        resultado = False
+        print (resultado)
+disyuncion_exclusiva(True, False)
+disyuncion_exclusiva(False, False)
+def xor(a, b):
+    return (a and not b) or (not a and b)
+xor(True, False)
+xor(True, True)
 
-conjuncion
-
-Disyunción:
-
-disyuncion
-
-Además, existen más operadores lógicos, como es el caso de la disyunción exclusiva (o XOR) que responde a esta tabla de verdad:
-
-disyuncion_exclusiva
-
-Sin embargo, este operador no está presente en muchos lenguajes de programación. Escribir una función xor que tome como parámetro dos booleanos y retorne el booleano correspondiente con la tabla.
-'''
 #Ejercicio 10
 # Escribir una función que reciba un nombre y un apellido y devuelva un saludo de bienvenida para esa persona.
+def saludo():
+    nombre = input("Dame tu nombre y apellido: ")
+    print (f"Hola {nombre}, bienvenido a python")
+saludo()
 
 #Ejercicio 11
-# Escribir una función que tome como parámetro un string y que, si empieza con la letra "H", nos devuelva la longitud del string.
+# Escribir una función que tome como parámetro un string y que, si empieza con la letra "H", nos devuelva la 
+# longitud del string.
+def longitud_h(palabra):
+    longitud = len(palabra)
+    if palabra[0]=="H":
+        print (f"La longitud del string es de {longitud}")
+    else:
+        print("La palabra no comienza con h")
+longitud_h("Hongo")
+longitud_h("Tango")
 
 #Ejercicio 12
-# Escribir una función que reciba como parámetro un string y nos diga si el string empieza con "Buenos" o "Buenas".
+# Escribir una función que reciba como parámetro un string y nos diga si el string empieza 
+# con "Buenos" o "Buenas".
+def buenas_o_buenos(frase):
+    if frase.startswith("Buenos"):
+        print ("La frase comienza con Buenos")
+    elif frase.startswith('Buenas'):
+        print ("La frase comienza con Buenas")
+    else:
+        return None
+buenas_o_buenos("Buenos dias")
+buenas_o_buenos("Buenas tardes")
+
+def buena(frase):
+    if frase[4] == "a":
+        print ("La frase comienza con Buenas")
+    elif frase[4] == "o":
+        print ("La frase comienza con Buenos")
+buena("Buenos dias")
+buena("Buenas tardes")
 
 #Ejercicio 13
-# Escribir una función llamada es_multiplo que reciba dos números y diga si el segundo es múltiplo del primero
+# Escribir una función llamada es_multiplo que reciba dos números y diga si el segundo
+# es múltiplo del primero
+def es_multiplo(numero1, numero2):
+    if numero1%numero2==0:
+        print(f"{numero2} es multiplo de {numero1}")
+    else:
+        print(f"{numero2} NO es multiplo de {numero1}")
+es_multiplo(10, 2)
 
 #Ejercicio 14
 # Escribir una función que nos diga si un número es par, impar o cero.
+def par_impar(numero1):
+    if numero1==0:
+        print(f"El {numero1} es igual a cero")
+    elif numero1 % 2==0:
+        print(f"El {numero1} es par")
+    else:
+        print (f"El {numero1} es impar")
+par_impar(4)
+par_impar(5)
+par_impar(0)
 
 #Ejercicio 15
-# Escribir una función que tome como parámetro una frase y nos diga cuántas "a" (o "A") hay en la frase, utilizando for.
+# Escribir una función que tome como parámetro una frase y nos diga cuántas "a" (o "A") hay en la frase,
+# utilizando for.
+def contador_de_a(frase):
+    contador = 0
+    for letra in frase:
+        if letra == "a" or letra == "A":
+            contador += 1
+    print(f"La cantidad de letras a que hay en la frase son {contador}")
+contador_de_a("Habia una vez")
 
 #Ejercicio 16
-# Escribir una función que tome como valor una cantidad de dinero y nos diga por cuántos meses podemos subsistir con ese dinero, tomando en cuenta que se gastan 60000 pesos por mes.
+# Escribir una función que tome como valor una cantidad de dinero y nos diga por cuántos meses podemos 
+# subsistir con ese dinero, tomando en cuenta que se gastan 60000 pesos por mes.
+def finanzas_personales(dinero):
+    presupuesto = int(dinero/6000)
+    if presupuesto ==1:
+        print (f"Con la cant de dinero que se tiene se puede subsistir un mes")
+    else:
+        print((f"Con la cant de dinero que se tiene se pueden subsistir {presupuesto} meses"))
+finanzas_personales(6000)
+finanzas_personales(18000)
+finanzas_personales(13000)
+
