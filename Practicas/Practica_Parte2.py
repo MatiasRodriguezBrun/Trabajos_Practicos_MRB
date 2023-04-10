@@ -1,4 +1,5 @@
 #!/usr/bin/ env python3
+
 #Ejercicio 1
 # Definir un procedimiento que tome como parámetro una lista, verifique si tiene el elemento "control"
 # y le agregue el string "revisado" y le quite el elemento "control".
@@ -87,7 +88,6 @@ print(caracteres("Agua"))
 # Modificá la función anterior para que además imprima los caracteres que no aparecen en la cadena, pero con el
 # valor 0.
 import string
-
 def caracteres1(palabra1):
     diccionario = {}
     for caracter in palabra1:
@@ -106,6 +106,8 @@ print(caracteres1("Agua"))
 def es_palindromo(palabra):
     palabra = palabra.lower().replace(" ", "")
     # Verificar si la palabra es igual al revés
+    # Compara la palabra original con su versión invertida utilizando la técnica de "slicing" de
+    # cadenas de caracteres ([::-1]).
     if palabra == palabra[::-1]:
         return palabra + " es palíndromo"
     else:
@@ -124,26 +126,53 @@ def productoria(lista_de_números):
 print(productoria(lista_de_números))
 
 #Ejercicio 10
-# Creá un programa para gestionar datos de los socios de un club, el cual permita:
-'''
-Cargar la información de los socios en un diccionario, al cual poder acceder por número de socio. Los datos que se deben almacenar son: número, nombre y apellido, fecha de ingreso (ddmmaaaa), cuota al dia (s/n). El programa debe iniciar con los datos de los socios fundadores ya cargados, los cuales son:
+# Creá un programa para gestionar datos de los socios de un club:
 
-Socio número 1, Florencia Ocampo, ingresó el 14/09/2001, cuota al día
+socios = {1:{"nombre_y_apellido":"Florencia Ocampo","fecha_de_ingreso":"14092001", "cuota_al_dia": True},
+2:{"nombre_y_apellido":"David Estévez","fecha_de_ingreso":"14092001", "cuota_al_dia": True},
+3:{"nombre_y_apellido":"Sofía Cáceres","fecha_de_ingreso":"14092001", "cuota_al_dia": True}}
 
-Socio número 2, David Estévez, ingresó el 14/09/2001, cuota al día
+def agregrar_socio(numero, nombre_y_apellido, fecha_de_ingreso, cuota_al_dia):
+    socios[numero] = {"nombre_y_apellido":nombre_y_apellido, "fecha_de_ingreso":fecha_de_ingreso,"cuota_al_dia":cuota_al_dia}
+#Agregue 2 socios
+agregrar_socio(4, "Matias Rodriguez", "08202003",False)
+agregrar_socio(5, "Vivi Brun", "21102017", True)
 
-Socio número 3, Sofía Cáceres, ingresó el 14/09/2001, cuota al día
+# Cantidad de socios del club
+print ("El club tiene", len(socios), "socios")
+print (socios)
 
-Informar la cantidad de socios que tiene el club.
+# Registrar que un usuario pago todas las cuotas
+def pagar_cuotas(numero_de_socio):
+    socios[numero_de_socio]["cuota_al_dia"] = True
+numero_socio = int(input("Ingrese el número del socio que ha pagado todas las cuotas: "))
+pagar_cuotas(numero_socio)
 
-Solicitar al usuario el número de un socio y registrar que ha pagado todas las cuotas.
+# Modificar las fechas de ingreso de todos los socios que ingresaron el 21/10/2017
+for numero_de_socio in socios:
+    if socios[numero_de_socio]["fecha_de_ingreso"] == "21102017":
+        socios[numero_de_socio]["fecha_de_ingreso"] = "22102017"
 
-Modificar la fecha de ingreso de todos los socios ingresados el 21/10/2017, indicando que en realidad ingresaron el 22/10/2017.
+# Funcion para dar de baja a un usuario
+def dar_de_baja_socio():
+    nombre_y_apellido = input("Ingrese el nombre y apellido del socio que desea dar de baja: ")
+    for numero, datos in socios.items():
+        if datos["nombre_y_apellido"] == nombre_y_apellido:
+            del socios[numero]
+            print(f"El socio {nombre_y_apellido} ha sido eliminado del listado.")
+            return
+    print(f"No se encontró ningún socio con el nombre {nombre_y_apellido}.")
 
-Solicitar el nombre y apellido d eun socio y darlo de baja (eliminarlo del listado).
+def imprimir_listado_socios(socios):
+    print('Listado completo de socios:')
+    for numero, datos in socios.items():# es una forma conveniente de iterar sobre un diccionario y 
+        #acceder tanto a las claves como a los valores asociados a ellas. Devuelve una lista de tuplas
+        nombre_y_apellido = datos['nombre_y_apellido']
+        fecha_de_ingreso = datos['fecha_de_ingreso'][0:2] + '/' + datos['fecha_de_ingreso'][2:4] + '/' + datos['fecha_de_ingreso'][4:]
+        # Se extraen los valores. por ej datos['fecha_de_ingreso'][0:2] extrae los primeros dos caracteres 
+        # de la cadena, que corresponden al año. Y despues se separa con una barra, el fin es que sea mas legible
+        cuota_al_dia = 'Sí' if datos['cuota_al_dia'] else 'No'
+        print(f'Socio número {numero}, {nombre_y_apellido}, ingresó el {fecha_de_ingreso}, cuota al día: {cuota_al_dia}')
+imprimir_listado_socios(socios)
 
-Imprimir el listado de socios completos.
-
-Definir las funciones y/o procedimientos que creas necesarios.
-'''
 
