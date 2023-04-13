@@ -32,8 +32,9 @@ patron = "ipsum(.*)sit" #--> todo lo que esta entre ipsum y sit
 print (re.search(patron, texto), "\n")
 print (re.search(patron, texto).group())
 print (re.search(patron, texto).group(0))
+#ipsum dolor sit
 # El group NO incluye los caracteres que yo busque
 print (re.search(patron, texto).group(1))
-
+#dolor
 # La función sub permite reemplazar todos las ocurrencias del patrón por otro patrón en un String.
 print(re.sub(patron, "###", texto))

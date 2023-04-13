@@ -1,7 +1,9 @@
 #Ejercicio 1
 # Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
 # determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P").
-
+with open("cositas.txt", "r") as miarch:
+    for letras in cositas:
+        
 #Ejercicio 2
 # Escribí un programa que lea un archivo e imprima las primeras n líneas.
 # range (a(inicio),b(fin),c(paso)) --> por defecto arranca en 0 y el paso es uno
