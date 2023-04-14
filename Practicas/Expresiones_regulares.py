@@ -4,6 +4,8 @@ import re
 #Ejercicio 1
 # Escribí un programa que verifique si un string tiene al menos un carácter permitido.
 # Estos caracteres son a-z, A-Z y 0-9.
+def caracter_permitido(string):
+    
 
 #Ejercicio 2
 # Escribí un programa que verifique si un string tiene todos sus caracteres permitidos. 
