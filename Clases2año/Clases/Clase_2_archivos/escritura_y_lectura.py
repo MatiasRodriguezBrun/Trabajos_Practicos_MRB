@@ -14,9 +14,6 @@ print(line)
 contenido = archivo.read()
 print (contenido)
 '''
-
-
-    
 # Modo (w) o write
 archivo_new = open("archivo_new.txt","w")
 archivo_new.write("Hola a todos\n")

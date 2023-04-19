@@ -1,9 +1,7 @@
 import os, sys
 
-
 def main():
     pass
-
 
 def saludoPersonal (mensaje):
   print (f"Hola, ",mensaje)

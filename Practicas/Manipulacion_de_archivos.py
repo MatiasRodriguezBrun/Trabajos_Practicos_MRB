@@ -1,16 +1,38 @@
 #Ejercicio 1
+import os, sys
 # Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
 # determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P").
-with open("cositas.txt", "r") as miarch:
-    for letras in cositas:
-        
+"""
+with open("archivo_ej1.txt  ", "r") as miarch:
+    contador = 0
+    for linea in miarch:
+        if not linea.startswith("P"):
+                contador += 1
+    print(contador, "lineas no comienzan con la letra P")
+
 #Ejercicio 2
 # Escribí un programa que lea un archivo e imprima las primeras n líneas.
 # range (a(inicio),b(fin),c(paso)) --> por defecto arranca en 0 y el paso es uno
 # (para aclarar el paso es necesario poner el inicio) En caso de querer que vaya para atras (0,4,-1)
+def read_n_lines(n, archivo):
+    with open(archivo, "r") as miarch:
+        for linea in range(n):
+            print (miarch.readline())
 
+read_n_lines(3, "archivo_ej1.txt")
+"""
 #Ejercicio 3
-# Escribí un programa que lea un archivo, guarde las líneas del archivo en una lista y luego imprima las n últimas.
+# Escribí un programa que lea un archivo, guarde las líneas del archivo en una lista 
+# y luego imprima las n últimas.
+def ej3(archivo, n):
+    with open (archivo, "r") as miarch:
+        for i in miarch:
+            lista_de_lineas = miarch.readlines()
+        for i in range ((len(miarch))-n), len(miarch):
+            print(miarch[i])
+            
+    return lista_de_lineas
+print(ej3("archivo_ej1.txt",3))
 
 #Ejercicio 4
 # Hacé un programa que lea un archivo, cuente la cantidad de palabras del archivo y luego imprima el resultado.
