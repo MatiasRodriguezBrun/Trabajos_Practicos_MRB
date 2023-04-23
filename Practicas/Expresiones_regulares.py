@@ -59,7 +59,7 @@ def palabra_unida_con_guion(string):
         return "Patron NO encontrado"
 
 print (palabra_unida_con_guion("hola_mi_nombre_esmatias_yme_gusta_el futbol"))
-"""
+
 #Ejercicio 5
 # Escribí un programa que diga si un string empieza con un número específico.
 #def empieza_con_numero(string):
@@ -116,6 +116,12 @@ lista = ["Práctica Python", "Práctica C++", "Práctica Fortran"]
 
 #Ejercicio 14
 # Realizá un programa que reemplace los espacios y tabulaciones por punto y coma.
-
+"""
 #Ejercicio 15
 # Realizá un programa que validar si una cuenta de mail está escrita correctamente.
+def validar_mail(mail):
+    return bool (re.search("^[a-z0-9]+[._-]?[a-z0-9]*[@][a-z]+[.]?[a-z]*$", mail))
+
+print(validar_mail("matias@gmail.com"))
+print(validar_mail("matias.brun@gmail.com"))
+print(validar_mail("matias%%brun@gmail.com"))

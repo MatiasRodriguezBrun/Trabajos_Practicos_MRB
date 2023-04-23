@@ -1,4 +1,8 @@
-class Golondrina:
+class AnimalAlado:
+  def esta_feliz(self):
+    return self.energia >= 100 
+
+class Golondrina(AnimalAlado): # significa que hereda de otra clase, entiende los mensajes de esa clase de la cual hereda
     #estado del objeto
   def __init__(self, energia): #constructor del objeto
     self.energia = energia
@@ -38,3 +42,4 @@ class Dragon:
 pepita = Golondrina(100)
 anastasia = Golondrina(200)
 roberta = Dragon(10, 1000)
+
