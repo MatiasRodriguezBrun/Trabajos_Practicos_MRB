@@ -4,7 +4,6 @@ import re
 #Ejercicio 1
 # Escribí un programa que verifique si un string tiene al menos un carácter permitido.
 # Estos caracteres son a-z, A-Z y 0-9.
-"""
 def caracter_permitido(string):
     return bool(re.search("[a-zA-Z0-9.]", string))
 
@@ -167,13 +166,13 @@ def reemplazar_espacios(string):
 
 print(reemplazar_espacios("Las gallinas son      asi, es lo   que hay"))
 
-"""
+
 #Ejercicio 15
 # Realizá un programa que validar si una cuenta de mail está escrita correctamente.
 def validar_mail(mail):
     return bool (re.search("^[a-z0-9]+[._-]?[a-z0-9]*[@][a-z]+[.]?[a-z]*$", mail))
 
-print(validar_mail("matias@gmail.com"))
-print(validar_mail("matias.brun@gmail.com"))
-print(validar_mail("matias%%brun@gmail.com"))
-print(validar_mail("@@matias%%brun@gmail.com"))
+print(validar_mail("matias@gmail.com")) #True
+print(validar_mail("matias.brun@gmail.com")) #True
+print(validar_mail("matias%%brun@gmail.com")) #False
+print(validar_mail("@@matias%%brun@gmail.com")) #False
