@@ -4,8 +4,20 @@
 
 #Tarea de expresiones regulares
 #Desafio I: r "\d {4,}" --> obtener al menos 4 digitos 
-#Desafio II:  "[a-z]{3,6}" --> obtener entre 3 y 6 letras minúsculas
+def encontrar_digitos(string):
+    pattern = "\d{4}"
+    return re.findall(pattern, string)
+print(encontrar_digitos("En 2020 fue la pandemia"))
+
+#Desafio II:  " --> obtener entre 3 y 6 letras minúsculas
+def encontrar_letras_minusculas(string):
+    return re.findall("[a-z]{3,6}", string)
+print(encontrar_letras_minusculas("la verdad no se entiende"))
+
 #Desafio III: "ab*" --> obtener todas las apariciones de ab en un string
+def encontrar_ab(string):
+    return re.findall("ab+", string)
+print(encontrar_ab("En la cancha se reparten abrazos, ab"))
 
 import re
 
