@@ -64,7 +64,6 @@ class Entrenador:
 
     
 
-
 pepita = Golondrina(100)
 anastasia = Golondrina(200)
 roberta = Dragon(10, 1000)

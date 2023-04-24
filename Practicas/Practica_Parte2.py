@@ -34,28 +34,26 @@ print()
 def ej_4(lista1,lista2,elemento):
     lista1.remove(elemento)
     lista2.append(elemento)
-    print(lista1)
-    print(lista2) 
+    return lista1, lista2 
 lista1 = [1,2,3,4]
 lista2 = [5,6,7]
-ej_4(lista1, lista2, 3)
-"El codigo corre pero si lo quiero hacer con return se me complica porque solo me retorna una lista"
+print(ej_4(lista1, lista2, 3))
 
 def ej_4b(lista1,lista2,elemento):
     posicion = lista.index(elemento)
     lista.pop(posicion)
     lista2.append(elemento)
-    print(lista1)
-    print(lista2) 
+    return lista1, lista2 
 lista1 = [1,2,3,4]
 lista2 = [5,6,7]
-ej_4(lista1, lista2, 3)
+print(ej_4(lista1, lista2, 3))
 "Este procedimiento tiene dos problemas; 1)Modifica las listas originales, 2)si el elemento que se quiere borrar"
 "aparece mas de una vez solo lo borra una unica vez"
 #Ejercicio 5
 # Escribir una función que tome como parámetro una lista de enteros y devuelva una lista con valores 
 # booleanos que indique si cada elemento es par o impar. Por ejemplo, para la lista [2, 45, 108, 12, 7], 
 # la función debería retornar [True, False, True, True, False]. Utilizar la función realizada en la práctica anterior.
+
 def par_impar(lista_enteros):
     lista_nueva = []
     for numero in lista_enteros:
@@ -174,5 +172,4 @@ def imprimir_listado_socios(socios):
         cuota_al_dia = 'Sí' if datos['cuota_al_dia'] else 'No'
         print(f'Socio número {numero}, {nombre_y_apellido}, ingresó el {fecha_de_ingreso}, cuota al día: {cuota_al_dia}')
 imprimir_listado_socios(socios)
-
 
