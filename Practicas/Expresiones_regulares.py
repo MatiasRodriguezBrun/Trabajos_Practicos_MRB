@@ -164,7 +164,7 @@ print()
 #Ejercicio 14
 # Realizá un programa que reemplace los espacios y tabulaciones por punto y coma.
 def reemplazar_espacios(string):
-    pattern = "\s"
+    pattern = r"\s"
     return re.sub(pattern, ";", string)
 
 print(reemplazar_espacios("Las gallinas son      asi, es lo   que hay"))

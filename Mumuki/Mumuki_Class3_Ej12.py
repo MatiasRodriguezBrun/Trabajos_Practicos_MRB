@@ -10,7 +10,7 @@ class Chef:
     else:
       raise Excep ("El plato ya está demasiado picante")
   
-class AyudanteDeCocina :
+class AyudanteDeCocina:
   def suavizar(self, plato):
     return True
 

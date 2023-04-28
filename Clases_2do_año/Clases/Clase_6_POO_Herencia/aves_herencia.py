@@ -62,7 +62,6 @@ class Entrenador:
     while not animal.esta_debil:
       animal.volar_en_circulos()
 
-    
 
 pepita = Golondrina(100)
 anastasia = Golondrina(200)

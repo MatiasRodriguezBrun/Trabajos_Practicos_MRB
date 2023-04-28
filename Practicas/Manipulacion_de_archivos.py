@@ -2,7 +2,7 @@
 import os, sys
 # Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
 # determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P").
-"""
+
 with open("archivo_ej1.txt  ", "r") as miarch:
     contador = 0
     for linea in miarch:
@@ -69,7 +69,7 @@ def reemplazar_y_guardar(archivo_entrada, archivo_salida, letra_a_reemplazar):
 
 # Llama a la función reemplazar_y_guardar() con los nombres de archivo y letra a reemplazar como argumentos
 reemplazar_y_guardar("archivo_ej1.txt", "archivo_salida.txt", "a")
-"""
+
 #Ejercicio 6
 # Realizá un programa que lea un archivo, elimine todos los saltos de línea y lo guarde en otro archivo.
 def eliminar_saltos_de_linea(archivo_de_entrada, archivo_salto_de_linea):
