@@ -14,10 +14,16 @@ class Golondrina(AnimalAlado): # significa que hereda de otra clase, entiende lo
     self.volar(0)
 
   def volar(self, kms):
-    self.energia -= 10 + kms
-  
+    if self.energia <= 0:
+        return "No puede volar"
+    else:
+        self.energia -= 10 + kms
+
   def esta_feliz(self):
     return self.energia>50
+  
+  def esta_en_equilibrio(self):
+    return bool (150 < self.energia < 300)
 
 class Dragon:     
   def __init__(self, cantidad_dientes, energia):
@@ -42,4 +48,10 @@ class Dragon:
 pepita = Golondrina(100)
 anastasia = Golondrina(200)
 roberta = Dragon(10, 1000)
+ave_sin_alas = Golondrina(0)
 
+print(pepita.esta_en_equilibrio)
+print(anastasia.esta_en_equilibrio)
+
+print(pepita.volar(20))
+print(ave_sin_alas.volar(2))

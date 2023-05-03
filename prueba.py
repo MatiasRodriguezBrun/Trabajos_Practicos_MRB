@@ -1,21 +1,18 @@
 #!/usr/bin/ env python3
+import re, glob, os
 
-import re 
+def Sidra(archivo_salida):
+    archivos_txt = glob.glob("*txt")
+    print (archivos_txt)
+    with open (archivo_salida, "a") as file:
+        for archivo in archivos_txt:
+            with open (archivo_salida, "r") as archivo_secreto:
+                texto = archivo_secreto.read()
+                mails = re.findall("[a-z0-9]+[._-]?[a-z0-9]*[@]gmail.com",texto )
+                for email in lista:
+                    file.write(email + "\n")
+    print (mails)
 
-def empieza_con_p(lista):
-    for elemento in lista:
-        pattern = r"^P.*\sP.*"
-        resultado = re.findall(pattern, elemento)
-        return resultado
 
-lista = ["Práctica Python", "Práctica P++", "Práctica Fortran"]  
-print(empieza_con_p(lista))
-print()
-"""
-def empieza_con_p(lista):
-    return re.findall("^P.*\sP.*", lista)
 
-lista = ["Práctica Python", "Práctica P++", "Práctica Fortran"]  
-print(empieza_con_p(lista))
-print()
-"""
+Sidra()

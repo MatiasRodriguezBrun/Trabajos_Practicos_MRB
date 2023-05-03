@@ -1,8 +1,34 @@
-#Ejercicio 1
-import os, sys
-# Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
-# determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P").
+#!/usr/bin/ env python3
+import os, sys, re, glob
+"""
+#Ejercicio de Practica
+# Escribir un script en el cual debemos movernos a la carpeta Informes y obtener los archivos *.txt que hayan allí.
+# Por cada archivo hay que obtener, por un lado, cuántas veces aparece la palabra "estado" y por otro lado la 
+# cantidad de líneas. Por último, hay que crear una carpeta que se llame Apellidos, donde hay que crear un archivo 
+# llamado Lista.txt que contenga en cada línea la primer línea de cada archivo .txt obtenidos anteriormente.
+def carpeta():
+    os.chdir("../Informes")
+    txt = glob.glob("*.txt")
+    cantidad_estado = []
+    cantidad_lineas = []
+    print(txt)
+    for archivo in txt:
+        with open (archivo, "r") as file:
+            archivo_completo = file.read()
+            cantidad_estado.append (archivo_completo.count("estado"))
+            print(cantidad_estado)
+            cantidad_lineas.append (archivo_completo.count("\n"))
+            print(cantidad_lineas)
+    os.mkdir("Apellidos")
+    with open ("Apellidos/Lista.txt", "w") as salida:
+        for archivo in txt:
+            with open(archivo, "r") as file:
+                primer_linea = file.readline()
+                salida.write(primer_linea)
 
+#Ejercicio 1
+# Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
+# determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P")
 with open("archivo_ej1.txt  ", "r") as miarch:
     contador = 0
     for linea in miarch:
@@ -40,19 +66,21 @@ def ej3(archivo, n):
     return lista_de_lineas
 # Llamamos a la función 'ej3' y le pasamos el nombre del archivo y el número de líneas a imprimir.
 print(ej3("archivo_ej1.txt", 3))
-
+"""
 #Ejercicio 4
 # Hacé un programa que lea un archivo, cuente la cantidad de palabras del archivo y luego imprima el resultado.
 def cantidad_de_palabras(archivo):
     with open(archivo, "r") as file:
         contador = 0
+        file = file.read()
         for linea in file: 
             contador += len(linea.split()) #Separa la línea en palabras usando la función split(), 
             # cuenta cuántas palabras hay y las agrega al contador
     return contador
 print(cantidad_de_palabras("archivo_ej1.txt"))
 
-
+            
+"""
 #Ejercicio 5
 # Escribí un programa que lea un archivo, reemplace una letra por esa misma letra más un salto de línea y 
 # lo guarde en otro archivo.
@@ -81,8 +109,7 @@ def eliminar_saltos_de_linea(archivo_de_entrada, archivo_salto_de_linea):
             # Escribe la línea sin saltos de línea en el archivo de salida, seguida de un salto de línea
                 file_salida.write(linea_sin_saltos + '\n')
 eliminar_saltos_de_linea("archivo_ej1.txt", "archivo_salto_de_linea.txt")
-            
-"""
+
 #Ejercicio 7
 # Escribí un programa que lea un archivo e identifique la palabra más larga, la cual
 # debe imprimir y decir cuantos caracteres tiene.

@@ -6,9 +6,10 @@ with open ("mi_nombre.txt", "a") as mi_arch:
 
 #lee la primer linea del archivio 
 with open ("archivo.txt", "r") as file:
-    line = file.readline()
+    line = file.readline() # si en el parametro le pongo un numeor me lee HASTA ese carcater inclusive
     print(line) # 1. Archivo
 print ()
+
 
 #lee todo el archivo, lo devuelve en forma de lista y separa las lineas mediante \n (saltos de linea)
 with open ("archivo.txt", "r") as file:
@@ -38,3 +39,4 @@ archivo_new.write("Hola a todos\n")
 archivo_new.write("Espero que esten muy bien\n")
 
 archivo_new.close()
+

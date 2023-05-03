@@ -140,18 +140,37 @@ print(calculadora.valorActual())
 #  que más voló y lo que comió la vez que más comió. El CSSV es otra vez la misma idea, respecto de la cantidad 
 # de veces que voló y comió. Si un gorrión nunca comió, los coeficientes deben ser None. Un gorrión se considera 
 # en equilibrio si su CSS está entre 0.5 y 2.
-
 class Gorriones:
-    def __init__(self, mas_volo, mas_comio):
-        self.mas_volo = mas_volo
-        self.mas_comio = mas_comio
+    def __init__(self):
+        self.kilometros = [] 
+        self.gramos = []
 
-    def CSS(self, kilometros, gramos_de_comida):
-        CSS = kilometros/gramos_de_comida
-        return CSS
-    
-    def CSSP(self):
-        return self.mas_volo/self.mas_comio
-    
-    def equilibrio(self, CSS):
-        return 0.5 < CSS < 2
+    def volar(self, km):
+        self.kilometros.append(km)
+
+    def comer(self, gramos):
+        self.gramos.append(gramos)
+
+    def css(self):
+        if not self.gramos == []: # if len(self.gramos) > 0: 
+            return sum(self.kilometros) / sum(self.gramos) #suma los valores de la lista SOLO si son valores numericos
+                                                       # si hay strings rompe
+        else:
+            return None
+
+    def cssp(self):
+        if not self.gramos == []:
+            return max(self.kilometro) / max(self.gramos)
+        else:
+            return None
+
+    def cssv(self):
+        if not self.gramos == []:
+            return len(self.kilometro) / len(self.gramos)
+        else:
+            return None
+        
+    def esta_en_equilibrio(self):
+        return  0.5 <= self.css() <= 2 #en lugar de usar un if 
+    # en otro lenguaje --> return self.css() >= 0.5 and self.css() =< 2  
+        

@@ -16,7 +16,7 @@ class Titan:
     def cuantas_casas(self):
         return self.salud*8/100
     
-    def destruir_casas(self):
+    def destruir_casas(self): # al 
         print (self.cuantas_casas()) #duda
     
     def grito(self):
