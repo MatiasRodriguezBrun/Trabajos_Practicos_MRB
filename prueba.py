@@ -1,6 +1,6 @@
 #!/usr/bin/ env python3
 import re, glob, os
-
+"""
 def Sidra(archivo_salida):
     archivos_txt = glob.glob("*txt")
     print (archivos_txt)
@@ -16,3 +16,4 @@ def Sidra(archivo_salida):
 
 
 Sidra()
+"""
