@@ -171,6 +171,6 @@ class Gorriones:
             return None
         
     def esta_en_equilibrio(self):
-        return  0.5 <= self.css() <= 2 #en lugar de usar un if 
+        return 0.5 <= self.css() <= 2 #en lugar de usar un if 
     # en otro lenguaje --> return self.css() >= 0.5 and self.css() =< 2  
         

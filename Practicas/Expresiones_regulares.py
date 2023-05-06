@@ -6,7 +6,7 @@ import re
 # Escribí un programa que verifique si un string tiene al menos un carácter permitido.
 # Estos caracteres son a-z, A-Z y 0-9.
 def caracter_permitido(string):
-    return bool(re.search("[a-zA-Z0-9.]", string))
+    return bool(re.search(r"[a-zA-Z0-9.]", string))
 
 print ("El string ", "ABSDSFHSKLasssssaOAF1223", "tiene caracteres permitidos?")
 print (caracter_permitido("ABSDSFHSKLasssssaOAF1223"))
@@ -19,7 +19,7 @@ print()
 # Estos caracteres son a-z, A-Z y 0-9.
 
 def todos_los_carac_permitidos(string):
-    return not bool(re.search("\W", string))
+    return not bool(re.search(r"\W", string)) # otra forma --> r"[^a-zA-Z0-9]"
 
 print ("En el string ", "ABSDSFHSKLasssssaOAF1223", "todos los caracteres estan permitidos?")
 print (todos_los_carac_permitidos("ABSDSFHSKLasssssaOAF1223"))
@@ -51,13 +51,17 @@ print()
 # Realizá un programa que encuentre una palabra unida a otra con un guión bajo en un string dado
 # (el string no debe contener espacios).
 def palabra_unida_con_guion(string):
-    pattern = ("[a-z]+_[a-z]+")
+    pattern = ("^[a-z]+_[a-z]+$")
     if re.search(pattern, string) is not None:
         return "Patron encontrado"
     else:
         return "Patron NO encontrado"
-
+#pattern = r"^[a-zA-Z]*_[a-zA-Z]*$"
+#resultado = re.search(pattern, string)
+# if resultado is not None:
+# return resultado.group()
 print(palabra_unida_con_guion("hola_mi_nombre"))
+print(palabra_unida_con_guion("hola mi_nombre"))
 print(palabra_unida_con_guion("hola mi nombre"))
 print()
 
@@ -80,6 +84,14 @@ def frase_ej6(string, frase):
 print(frase_ej6("Hola como andan", "Hola como"))
 print(frase_ej6("Hola como andan", "Hi"))
 print()
+def frase_dada(lista, frase):
+    resultado = []
+    for elemento in lista:
+        resultado +=re.findall(frase, elemento)
+    return resultado
+
+print(frase_dada(["Hola", "que estan", "buscando", "Hola"], ("Hola")))
+print(frase_dada(["Hola", "que estan", "buscando", "Holaa dasndeud","HolA"], ("Hola")))
 #Ejercicio 7
 # Realizá un programa que encuentre un string que contenga solamente letras minúsculas, mayúsculas, espacios
 # y números.
@@ -132,12 +144,12 @@ print()
 # letra P y las imprima. (Lista de ejemplo: ["Práctica Python", "Práctica C++", "Práctica Fortran"]).
 def empieza_con_p(lista):
     for elemento in lista:
-        pattern = r"^P.*\sP.*"
-        resultado = re.findall(pattern, elemento)
-        return resultado
+        resultado = (re.match(r"(P\w*)\s(P.*)", elemento))
+        if resultado is not None:
+            print(resultado.group())
 
-lista = ["Práctica Python", "Práctica P++", "Práctica Fortran"]  
-print(empieza_con_p(lista)) #solo me muestra ['Práctica Python'] 
+print(empieza_con_p(["Práctica Python", "Práctica C++", "Práctica Fortran"]))
+print(empieza_con_p(["Práctica Python", "Práctica P++", "Práctica Fortran"])) 
 print()
 #Ejercicio 12
 # Escribí un programa que reemplace todas las ocurrencias de espacios, guiones bajos y dos puntos
@@ -151,14 +163,14 @@ print()
 #Ejercicio 13
 # Escribí un programa que reemplace los dos primeros caracteres no alfanúmericos por guiones bajos.
 def reemplazar_alfanumericos(string):
-    pattern = r"\W{2}?" # en este caso solo me lo reemplaza si encuentra dos, si encuentra menos no lo hace.
-    # Ademas me di cuenta que solo lo reemplaza si estan juntos porque el punto(.) tamebien es un caracter NO alfanumerico
-    return re.sub(pattern, "__" , string, count=2)
+    pattern = r"\W" 
+    return re.sub(pattern, "__" , string, 2) # el 2 me sirve para saber la cantidad de veces que quiero reemplazar 
+                                             # esa expresion regular q encuentre
 
-print(reemplazar_alfanumericos("matias@mail.com"))#no me reemplaza nada ni el @ ni el punto
-print(reemplazar_alfanumericos("matias@mail@.com"))#aca si me reemplaza porque estan juntos (matias@mail__com)
+print(reemplazar_alfanumericos("matias@mail.com"))
+print(reemplazar_alfanumericos("matias@mail@.com"))
 print(reemplazar_alfanumericos("matias###gm$ail.com"))
-print(reemplazar_alfanumericos("!!matias###gm$ail.com"))#no solo me reemplaza las dos primera (!!) sino que tambien ##
+print(reemplazar_alfanumericos("!!matias###gm$ail.com"))
 print()
 
 #Ejercicio 14

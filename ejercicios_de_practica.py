@@ -23,15 +23,32 @@ def sangre_tipo_o_positivo(archivo):
 print(sangre_tipo_o_positivo("tipo_de_sangre.txt"))
 """
 
-# Realizá un programa que dado una lista de strings verifique que dos palabras dentro del string empiecen con la 
-# letra P y las imprima. (Lista de ejemplo: ["Práctica Python", "Práctica C++", "Práctica Fortran"]).
-def empieza_con_p(lista):
-    lista_nueva = []
-    for elemento in lista:
-        lista_nueva.append(re.findall(r"^P[^0-9]*\sP[^0-9]*", elemento))
-    return lista_nueva
+"""
+#Ejercicio 10
+# Obtené las substrings y las posiciones de estas en una string dada considerando que las substrings
+#  están delimitadas por los caracteres @ o &.
 
-print(empieza_con_p(["Práctica Python", "Práctica P++", "Práctica Fortran"]))
+def obtener_substrings(string):
+    return re.findall(r"[@|&](.*)[@|&]", string)
 
+print(obtener_substrings("matias@gmail@com"))
+print(obtener_substrings("matias&gmail&com")) 
+"""
 
+# Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
+# determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P")
 
+def ej1(archivo):
+    with open(archivo, "r") as miarch:
+        texto = miarch.read()
+        empieza_con_p = re.findall(r"[P]", texto)
+        print ("Sabemos que", len(empieza_con_p), "lineas empiezan con P")
+
+    with open (archivo, "r") as miarch2:
+        leido_en_lista = miarch2.readlines()
+        print ("Sabemos que el archivo total tiene", len(leido_en_lista), "lineas")
+
+        lineas_no_empiezan_con_p = len(leido_en_lista) - len(empieza_con_p)
+        print (f"Por lo tanto {lineas_no_empiezan_con_p} lineas no empiezan con la letra P")
+
+ej1("tipo_de_sangre.txt")

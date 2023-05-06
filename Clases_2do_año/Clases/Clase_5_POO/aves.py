@@ -7,7 +7,7 @@ class Golondrina(AnimalAlado): # significa que hereda de otra clase, entiende lo
   def __init__(self, energia): #constructor del objeto
     self.energia = energia
 
-  def comer_alpiste(self, gramos):
+  def comer(self, gramos):
     self.energia += 4 * gramos
 
   def volar_en_circulos(self):

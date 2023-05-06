@@ -62,10 +62,18 @@ def ej3(archivo, n):
             # Imprimimos la línea sin agregar un salto de línea adicional al final.
             # El parámetro 'end' se establece en una cadena vacía para lograr esto.
             print(linea, end="")
-    # Devolvemos la lista completa de líneas para cualquier uso futuro.
-    return lista_de_lineas
+
 # Llamamos a la función 'ej3' y le pasamos el nombre del archivo y el número de líneas a imprimir.
-print(ej3("archivo_ej1.txt", 3))
+(ej3("archivo_ej1.txt", 2))
+
+def imprimir_las_n_ultimas(n, archivo):
+    with open (archivo, "r") as miarch:
+        archivo_leido = miarch.readlines()
+        lista = []
+        for linea in archivo_leido[-n:]:
+            lista.append(linea)
+        print (lista)   
+imprimir_las_n_ultimas(2, "archivo_ej1.txt")
 """
 #Ejercicio 4
 # Hacé un programa que lea un archivo, cuente la cantidad de palabras del archivo y luego imprima el resultado.
@@ -184,5 +192,21 @@ def concatenar_archivos_txt(carpeta):
         for nombre_archivo in os.listdir(carpeta):
             ruta_archivo = os.path.join(carpeta, nombre_archivo)
             if os.path.isfile(ruta_archivo) and nombre_archivo.endswith(".txt"):
-                with open(ruta_arch 
+                with open(ruta_arch)
+
+#ej 1 variante
+def ej1(archivo):
+    with open(archivo, "r") as miarch:
+        texto = miarch.read()
+        empieza_con_p = re.findall(r"[P]", texto)
+        print ("Sabemos que", len(empieza_con_p), "lineas empiezan con P")
+
+    with open (archivo, "r") as miarch2:
+        leido_en_lista = miarch2.readlines()
+        print ("Sabemos que el archivo total tiene", len(leido_en_lista), "lineas")
+
+        lineas_no_empiezan_con_p = len(leido_en_lista) - len(empieza_con_p)
+        print (f"Por lo tanto {lineas_no_empiezan_con_p} lineas no empiezan con la letra P")
+
+ej1("tipo_de_sangre.txt")    
 """
