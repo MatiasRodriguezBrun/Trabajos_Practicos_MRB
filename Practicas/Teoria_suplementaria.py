@@ -4,7 +4,7 @@ import os, glob
 def carpeta():
     os.chdir("../Informes")
     txt = glob.glob("*.txt")
-    cantidad_estado = []git co
+    cantidad_estado = []
     cantidad_lineas = []
     print(txt)
     for archivo in txt:

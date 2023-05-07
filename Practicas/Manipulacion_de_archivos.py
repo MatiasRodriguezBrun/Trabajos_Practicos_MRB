@@ -1,6 +1,6 @@
 #!/usr/bin/ env python3
 import os, sys, re, glob
-"""
+
 #Ejercicio de Practica
 # Escribir un script en el cual debemos movernos a la carpeta Informes y obtener los archivos *.txt que hayan allí.
 # Por cada archivo hay que obtener, por un lado, cuántas veces aparece la palabra "estado" y por otro lado la 
@@ -9,17 +9,21 @@ import os, sys, re, glob
 def carpeta():
     os.chdir("../Informes")
     txt = glob.glob("*.txt")
-    cantidad_estado = []
-    cantidad_lineas = []
-    print(txt)
+    cant_estado = []
+    cant_lineas = []
     for archivo in txt:
         with open (archivo, "r") as file:
-            archivo_completo = file.read()
-            cantidad_estado.append (archivo_completo.count("estado"))
-            print(cantidad_estado)
-            cantidad_lineas.append (archivo_completo.count("\n"))
-            print(cantidad_lineas)
-    os.mkdir("Apellidos")
+            txt_leido = file.read()
+            cant_estado.append(txt_leido.count("Estado"))
+            cant_lineas.append(txt_leido.count("\n"))
+    print("cantidad de estado:", cant_estado)  
+    print ("En el primer archivo aparece",cant_estado[0], "veces la palabra Estado. Y tiene", cant_lineas[0], "lineas")
+    print("cantiadad total de estado", sum(cant_estado))     
+    print("cantidad de lineas:",cant_lineas) 
+    print("cantiadad total de lineas", sum(cant_lineas))  
+
+    if not os.path.exists("Apellidos"):
+        os.mkdir("Apellidos")
     with open ("Apellidos/Lista.txt", "w") as salida:
         for archivo in txt:
             with open(archivo, "r") as file:
@@ -74,7 +78,7 @@ def imprimir_las_n_ultimas(n, archivo):
             lista.append(linea)
         print (lista)   
 imprimir_las_n_ultimas(2, "archivo_ej1.txt")
-"""
+
 #Ejercicio 4
 # Hacé un programa que lea un archivo, cuente la cantidad de palabras del archivo y luego imprima el resultado.
 def cantidad_de_palabras(archivo):
@@ -88,7 +92,7 @@ def cantidad_de_palabras(archivo):
 print(cantidad_de_palabras("archivo_ej1.txt"))
 
             
-"""
+
 #Ejercicio 5
 # Escribí un programa que lea un archivo, reemplace una letra por esa misma letra más un salto de línea y 
 # lo guarde en otro archivo.
@@ -122,26 +126,27 @@ eliminar_saltos_de_linea("archivo_ej1.txt", "archivo_salto_de_linea.txt")
 # Escribí un programa que lea un archivo e identifique la palabra más larga, la cual
 # debe imprimir y decir cuantos caracteres tiene.
 # split() --> por defecto separa el string por espacios en blanco. Ej: "Clase 5 de abril" --> ["CLase","5","de","Abril"]
-def palabra_mas_larga(archivo):
-    palabra_mas_larga = ""
-    longitud_mas_larga = 0
-    with open(archivo, "r") as file:
-        for linea in file:
-            palabras = linea.split()
-            for palabra in palabras:
-                longitud_palabra = len(palabra)
-                if longitud_palabra > longitud_mas_larga:
-                    longitud_mas_larga = longitud_palabra
-                    palabra_mas_larga = palabra
-    print(f"La palabra más larga es '{palabra_mas_larga}' y tiene {longitud_mas_larga} caracteres.")
+def ejercicio(archivo):
+    with open (archivo, "r") as file:
+        txt_leido = file.read().split()
+    lista = []
+    for palabra in txt_leido:
+        lista.append(len(palabra))
+    caracteres_de_palabra_mas_larga = max(lista)
+    posicion_de_palabra_mas_larga = (lista.index(max(lista)))
+    print ("La palabra mas larga es", txt_leido[posicion_de_palabra_mas_larga]," y tiene", caracteres_de_palabra_mas_larga, "caracteres")
+
+ejercicio("archivo_ej1.txt")
+
 #Ejercicio 8
 # Escribí un programa que abra dos documentos y guarde el contenido de ambos en un otro documento ya existente.
 def combinar_archivos(archivo1, archivo2, archivo_salida):
-    with open(archivo1, "r") as file1, open(archivo2, "r") as file2, open(archivo_salida, "w") as file_salida:
+    with open(archivo1, "r") as file1, open(archivo2, "r") as file2, open(archivo_salida, "a") as file_salida:
         contenido1 = file1.read()
         contenido2 = file2.read()
         file_salida.write(contenido1)
         file_salida.write(contenido2)
+
 #Ejercicio 9
 # Realizá un programa que lea un archivo y obtenga la frecuencia de cada palabra que hay en el archivo. 
 # Recordá que la frecuencia es la relación entre número de veces que aparece la palabra
@@ -175,24 +180,37 @@ def obtener_frecuencia(archivo):
         print("\nFrecuencia relativa de cada palabra (%):")
         for palabra, frecuencia in frecuencia_relativa.items():
             print(f"{palabra}: {frecuencia}")
+        
 #Ejercicio 10
 # Escribí un programa que lea todos los archivos .txt de una carpeta dada (Carpeta1) y los añada a un archivo
 # dentro de la carpeta Resultado, que a su vez se tiene que encontrar dentro de Carpeta1.
+# (NO ES DE LA CONSIGNA ORIGINAL) Encontrar los mails y escribirlos en una archivo nuevo
 
-def concatenar_archivos_txt(carpeta):
-    # Crear la carpeta "Resultado" dentro de la carpeta "Carpeta1" (si no existe).
-    ruta_carpeta_resultado = os.path.join(carpeta, "Resultado")
-    if not os.path.exists(ruta_carpeta_resultado):
-        os.makedirs(ruta_carpeta_resultado)
+def carpeta(archivo_salida, archivo_salida_solo_mails):
+    os.chdir("Carpeta1")
+    if not os.path.exists("Resultado"):
+        os.mkdir("Resultado")
+    else:
+        print ("No se puede crear xq la carpeta Resultado ya existe")
 
-    # Crear un archivo de salida dentro de la carpeta "Resultado".
-    ruta_archivo_salida = os.path.join(ruta_carpeta_resultado, "resultado.txt")
-    with open(ruta_archivo_salida, "w") as file_salida:
-        # Iterar sobre los archivos ".txt" de la carpeta "Carpeta1" y copiar su contenido en el archivo de salida.
-        for nombre_archivo in os.listdir(carpeta):
-            ruta_archivo = os.path.join(carpeta, nombre_archivo)
-            if os.path.isfile(ruta_archivo) and nombre_archivo.endswith(".txt"):
-                with open(ruta_arch)
+    txt = glob.glob("*.txt")
+    print (txt)
+    for archivo in txt:
+        with open (archivo, "r") as entrada:
+            texto_leido = entrada.read()
+    
+        os.chdir("Resultado")
+        with open (archivo_salida, "a") as salida: # se usa append xq lo estoy recorriendo sino solo me escribiria 
+                                                   # el contenido del ultimo archivo                                          
+            salida.write(texto_leido + "\n") # + "\n" agrega el salto de linea
+        os.chdir("../") # para que vuelva a la carpeta inicial, en este caso Informes y busque el siguiente archivo
+                        # alli y no en la carpeta nueva("Resultado")
+    
+    mails = re.findall(r"[a-z]+[._-][0-9]*[a-z]*[@][a-z]+[.][a-z]+[.]?[a-z]{2,3}", archivo_salida)
+    os.chdir("Resultado")
+    with open (archivo_salida_solo_mails, "a") as mails:
+        for mail in mails:
+            mails.write(mail + "\n")
 
 #ej 1 variante
 def ej1(archivo):
@@ -208,5 +226,5 @@ def ej1(archivo):
         lineas_no_empiezan_con_p = len(leido_en_lista) - len(empieza_con_p)
         print (f"Por lo tanto {lineas_no_empiezan_con_p} lineas no empiezan con la letra P")
 
-ej1("tipo_de_sangre.txt")    
-"""
+ej1("tipo_de_sangre.txt")  
+ 
