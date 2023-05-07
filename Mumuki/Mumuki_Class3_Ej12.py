@@ -1,33 +1,47 @@
 #!/usr/bin/ env python3
-
 class Chef:
-  def __init__(self, plato_del_dia):
-    self.plato_del_dia = plato_del_dia
-    
-  def picantear(self, plato):
-    if plato is not demasiado_picante():
-      return True
-    else:
-      raise Excep ("El plato ya está demasiado picante")
-  
+    def __init__(self, plato_del_dia):
+        self.plato_del_dia = plato_del_dia
+
+    def picantear(self):
+        if not self.plato_del_dia.demasiado_picante():
+            self.plato_del_dia.picantear()
+        else:
+            raise Exception("El plato ya está demasiado picante")
+
 class AyudanteDeCocina:
-  def suavizar(self, plato):
-    return True
+    def suavizar(self, plato):
+      self.plato = plato
+      self.plato.suavizar()
 
 class Pasta:
-  def __init__(self):
-    self.ajies = 0
+    def __init__(self):
+        self.ajies = 0
 
+    def demasiado_picante(self):
+        return self.ajies > 10
     
-  def demasiado_picante(self):
-      return self.ajies > 10
-    
+    def picantear(self):
+      self.ajies += 5
+      
+    def suavizar(self):
+      self.ajies -= 1 
+
 class Pizza:
-  def __init__(self):
-    self.condimento = "adobo"
+    def __init__(self):
+        self.condimento = "adobo"
 
-  def demasiado_picante(self):
-    return self.condimento == "cayena"
+    def demasiado_picante(self):
+        return self.condimento == "cayena"
+      
+    def picantear(self):
+      self.condimento = "cayena"
+      
+    def suavizar(self):
+      self.condimento = "oregano"
+  
+
+      
 
 """
 fideos = Pasta()

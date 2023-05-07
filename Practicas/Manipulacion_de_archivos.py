@@ -191,7 +191,7 @@ def carpeta(archivo_salida, archivo_salida_solo_mails):
     if not os.path.exists("Resultado"):
         os.mkdir("Resultado")
     else:
-        print ("No se puede crear xq la carpeta Resultado ya existe")
+        print ("No se puede crear porque la carpeta Resultado ya existe")
 
     txt = glob.glob("*.txt")
     print (txt)

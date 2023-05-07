@@ -4,8 +4,8 @@ bio.write("Por otro lado, me gusta mucho el deporte, ppalmente el futbol\n")
 print (bio)
 
 bio = open ("bio.txt","r")
-bio.read()
-bio.readlines()
+print (bio.read())
+print (bio.readlines())
 
 bio.close()
 
