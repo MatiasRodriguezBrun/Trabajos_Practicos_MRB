@@ -34,7 +34,7 @@ def obtener_substrings(string):
 print(obtener_substrings("matias@gmail@com"))
 print(obtener_substrings("matias&gmail&com")) 
 """
-
+"""
 # Realizá un programa que lea un archivo e imprima cuántas líneas de ese archivo no empiezan con una 
 # determinada letra (por ejemplo que imprima cuántas líneas no empiezan con "P")
 
@@ -52,3 +52,10 @@ def ej1(archivo):
         print (f"Por lo tanto {lineas_no_empiezan_con_p} lineas no empiezan con la letra P")
 
 ej1("tipo_de_sangre.txt")
+"""
+# a) Obtener la lista de subsecuencia delimitadas por X e Y que incluyan las subsecuencia "ab". 
+# Por ej para XbaaaYjXababYqXbabbbbaaYqXffeeY, hay que devolver ["abab, "babbbaa"]
+def obtener_subsecuencia(string):
+    return re.findall(r"ag([^0-9]*)cta", string)
+
+print(obtener_subsecuencia("aabocaggaaactazudlggaasag24gra1ndecta"))

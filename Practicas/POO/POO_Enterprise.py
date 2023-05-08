@@ -6,9 +6,10 @@ class Enterprise:
         self.coraza = 5
     
     def encontrarPilaAtomica(self):
-        self.potencia += 25
-        if self.potencia > 100:
-            self.potencia = 100
+          if self.potencia + 25 <= 100:
+            self.potencia += 25
+          else:
+              self.potencia = 100
     
     def encontrarEscudo(self):
         self.coraza +=10
