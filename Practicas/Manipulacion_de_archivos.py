@@ -24,6 +24,9 @@ def carpeta():
 
     if not os.path.exists("Apellidos"):
         os.mkdir("Apellidos")
+    else:
+        print ("No se puede crear porque la carpeta Apellidos porque ya existe")
+
     with open ("Apellidos/Lista.txt", "w") as salida:
         for archivo in txt:
             with open(archivo, "r") as file:
@@ -90,8 +93,6 @@ def cantidad_de_palabras(archivo):
             # cuenta cuántas palabras hay y las agrega al contador
     return contador
 print(cantidad_de_palabras("archivo_ej1.txt"))
-
-            
 
 #Ejercicio 5
 # Escribí un programa que lea un archivo, reemplace una letra por esa misma letra más un salto de línea y 

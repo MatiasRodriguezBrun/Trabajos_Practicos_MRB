@@ -23,6 +23,8 @@
     El polimorfismo es un concepto que se refiere a la capacidad de un objeto para tomar varias formas o tener múltiples comportamientos. En la programación orientada a objetos, esto significa que un objeto puede ser tratado como si fuera de diferentes tipos o clases.
     El polimorfismo es importante porque nos permite escribir código que pueda manejar diferentes tipos de objetos sin necesidad de saber su tipo específico. Esto hace que nuestro código sea más flexible y reutilizable.
 
+
+
 # --> *Interfaces*:
     Una interfaz es una lista de métodos abstractos que una clase debe implementar si quiere cumplir con la interfaz. Una interfaz define un contrato que debe ser cumplido por las clases que la implementan. Las interfaces también pueden contener constantes.
     Las interfaces son importantes porque nos permiten definir una API para nuestras clases sin necesidad de preocuparnos por su implementación concreta. Esto nos permite escribir código que sea independiente de la implementación concreta de las clases.
