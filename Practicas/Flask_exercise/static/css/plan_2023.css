@@ -12,14 +12,12 @@ h1{
     font-size: 39px ; 
 }
 
-.contexto {
+.purple-section {
     background-color: #A291C6;
-    border: 3px solid black;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    border: 3px solid black; 
 }
-.contexto img{
+
+.purple-section img{
     position: absolute;
     top: 9px;
     left: 20px;
@@ -28,30 +26,27 @@ h1{
 
 .yellow-section{
     background-color: #FBDA5A;
-    border: 3px solid black;
+    border: 3px solid black; 
 }
 
-.yellow-section p{
+.div-1 p{
     color: black;
-    padding: 70px 0px 27px 120px;
+    position: relative;
+    padding: 4% 0% 0% 6%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
     font-size: 30px;
 }
 
-.yellow-section img{
+.lista ul{
+    color: black;
     position: relative;
-    padding-top: 0%;
-    padding-left: 50%;
-    padding-bottom: 1,5%;
-    height: 400px;
+    padding: 2% 50% 20% 7%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;  
 }
-
-.footer {
-    background-color: #96F7D2;
-    border: 3px solid black;    
-}
-
 .footer p{
     padding: 3%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    background-color: #96F7D2;
+    border: 3px solid black;    
 }

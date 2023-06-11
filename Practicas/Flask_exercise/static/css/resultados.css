@@ -12,14 +12,12 @@ h1{
     font-size: 39px ; 
 }
 
-.contexto {
+.resultados {
     background-color: #A291C6;
-    border: 3px solid black;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    border: 3px solid black; 
 }
-.contexto img{
+
+.resultados img{
     position: absolute;
     top: 9px;
     left: 20px;
@@ -28,30 +26,29 @@ h1{
 
 .yellow-section{
     background-color: #FBDA5A;
-    border: 3px solid black;
+    border: 3px solid black; 
 }
 
-.yellow-section p{
+.div-1 h2{
     color: black;
-    padding: 70px 0px 27px 120px;
+    position: relative;
+    padding: 3% 50% 0% 3%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
-    font-size: 30px;
+    font-size: 35px;
 }
 
-.yellow-section img{
+.div-img {
     position: relative;
     padding-top: 0%;
-    padding-left: 50%;
-    padding-bottom: 1,5%;
-    height: 400px;
-}
-
-.footer {
-    background-color: #96F7D2;
-    border: 3px solid black;    
+    padding-bottom: 10%;
+    left: 50%;
+    height: 20%;
+    width: 10%;
 }
 
 .footer p{
     padding: 3%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    background-color: #96F7D2;
+    border: 3px solid black;    
 }
