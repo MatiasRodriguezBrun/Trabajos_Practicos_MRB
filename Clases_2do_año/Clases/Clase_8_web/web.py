@@ -24,7 +24,7 @@ print (contenido_respuesta.keys())
 print ("El content type de la rta es", respuesta.headers["Content-Type"])
 
 # 4) Cual es el status code de la rta? 
-print("El status code de la rta es de 200", respuesta.status_code)
+print("El status code de la rta es", respuesta.status_code)
 
 # 5) Cuantas habilidades (abilities) tiene este pokemon?
 print (len(contenido_respuesta["abilities"]))

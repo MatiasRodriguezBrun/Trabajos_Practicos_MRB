@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 1%;
+    padding-top: 1%;
+    font-size: 35px;
+}
+
+.home {
+    background-color: black;
+}
+
+.home p{
+    color: white;
+    padding: 20px 20px 
+}
+
+.home a:hover{
+    color: red;
+}
+.home a{
+    color: white;
+}
+.home img {
+    position: absolute;
+    top: 7px;
+    right: 850px;
+    height: 80px;
+}
+
+.about a{
+    color: black;
+}
