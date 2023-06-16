@@ -27,22 +27,24 @@ h1{
 }
 
 .yellow-section{
+    display: grid;
+    grid-template-columns: 50% auto;
     background-color: #FBDA5A;
     border: 3px solid black;
 }
 
-.yellow-section p{
+.texto-datos {
     color: black;
     padding: 70px 0px 27px 120px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;   
     font-size: 30px;
 }
 
-.yellow-section img{
+.grafico-datos {
     position: relative;
-    padding-top: 0%;
-    padding-left: 50%;
-    padding-bottom: 1,5%;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-bottom: 20%;
     height: 400px;
 }
 

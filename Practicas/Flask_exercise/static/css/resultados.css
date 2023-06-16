@@ -29,7 +29,7 @@ h1{
     border: 3px solid black; 
 }
 
-.div-1 h2{
+.div-1 {
     color: black;
     position: relative;
     padding: 3% 50% 0% 3%;
