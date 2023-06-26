@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    background-color: #9BF7D4;
+    height: 625px;
+    overflow: hidden;
+}
+
+.cuadrante1 {
+    display: flex;
+    grid-row: 1/3;
+    grid-column: 1/2;
+    border: 2px solid rgba(0, 0, 0, 0.509);
+    overflow: hidden;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+
